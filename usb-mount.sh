@@ -43,14 +43,14 @@ do_mount()
 
     # Figure out a mount point to use
     LABEL=${ID_FS_LABEL}
-    if grep -q " /media/${LABEL} " /etc/mtab; then
+    if grep -q " /tmp/media/${LABEL} " /etc/mtab; then
         # Already in use, make a unique one
         LABEL+="-${DEVBASE}"
     fi
     DEV_LABEL="${LABEL}"
 
     # Prefix the device name in case the drive doesn't have label
-    MOUNT_POINT="/media/${DEVBASE}_${LABEL}"
+    MOUNT_POINT="/tmp/media/${DEVBASE}_${LABEL}"
 
     ${log} "Mount point: ${MOUNT_POINT}"
 
